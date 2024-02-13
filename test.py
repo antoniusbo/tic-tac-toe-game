@@ -16,6 +16,14 @@ def printBoard(board):
 player1 = "X"
 player2 = "O"
 
+def make_move (player, cell):
+    if theBoard[cell] == ' ':
+        theBoard[cell] = player
+    else:
+        print("The cell is already occupied. Please choose another cell.")
+
+
+
 game = 1
 
 while game == True:
@@ -30,50 +38,22 @@ while game == True:
         #     print("Please write a name not a number.")
         print("The board is below. Let's start!")
         printBoard(theBoard)
-        move = int(input("Player1 your turn with X. Please choose a cell: "))
-        if move != int:
-            print("Please insert a cell number.")
-        else:
-            if theBoard['1'] == ' ':
-                theBoard['1'] = player1
+        for i in range(1,10):
+            move = (input("Player1 your turn with X. Please choose a cell: "))
+            if not move.isdigit():
+                print("Please insert a cell number.")
             else:
-                print("The cell is already occupied. Please choose another cell.")
-            if theBoard['2'] == ' ':
-                theBoard['2'] = player1
-            else:
-                print("The cell is already occupied. Please choose another cell.")
-            if theBoard['3'] == ' ':
-                theBoard['3'] = player1
-            else:
-                print("The cell is already occupied. Please choose another cell.")
-            if theBoard['4'] == ' ':
-                theBoard['4'] = player1
-            else:
-                print("The cell is already occupied. Please choose another cell.")
-            if theBoard['5'] == ' ':
-                theBoard['5'] = player1
-            else:
-                print("The cell is already occupied. Please choose another cell.")
-            if theBoard['6'] == ' ':
-                theBoard['6'] = player1
-            else:
-                print("The cell is already occupied. Please choose another cell.")
-            if theBoard['7'] == ' ':
-                theBoard['7'] = player1
-            else:
-                print("The cell is already occupied. Please choose another cell.")
-            if theBoard['8'] == ' ':
-                theBoard['8'] = player1
-            else:
-                print("The cell is already occupied. Please choose another cell.")
-            if theBoard['9'] == ' ':
-                theBoard['9'] = player1
-            else:
-                print("The cell is already occupied. Please choose another cell.")
+                make_move(player1,move)
+                    printBoard(theBoard)
 
 
 
-
+                move = (input("Player2 your turn with O. Please choose a cell: "))
+                if not move.isdigit():
+                    print("Please insert a cell number.")
+                else:
+                    make_move(player1, move)
+                    printBoard(theBoard)
 
 
 
