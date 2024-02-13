@@ -16,12 +16,13 @@ def printBoard(board):
 player1 = "X"
 player2 = "O"
 
-def make_move (player, cell):
+def make_move(player, cell):
     if theBoard[cell] == ' ':
         theBoard[cell] = player
+        return True
     else:
         print("The cell is already occupied. Please choose another cell.")
-
+        return False
 
 
 game = 1
@@ -38,38 +39,68 @@ while game == True:
         #     print("Please write a name not a number.")
         print("The board is below. Let's start!")
         printBoard(theBoard)
-        for i in range(1,10):
-            move = (input("Player1 your turn with X. Please choose a cell: "))
-            if not move.isdigit():
-                print("Please insert a cell number.")
-            else:
-                make_move(player1,move)
-                    printBoard(theBoard)
+        for i in range(1, 10):
+            valid_move = False
+            while not valid_move:
+                move = (input("Player1 your turn with X. Please choose a cell: "))
+                if not move.isdigit():
+                    print("Please insert a cell number from 1-9.")
+
+                else:
+                    valid_move = make_move(player1,move)
+                    if valid_move:
+                        printBoard(theBoard)
+                        break
 
 
 
+            if (theBoard['7'] == theBoard['8'] == theBoard['9'] == player1) or \
+                    (theBoard['4'] == theBoard['5'] == theBoard['6'] == player1) or \
+                    (theBoard['1'] == theBoard['2'] == theBoard['3'] == player1) or \
+                    (theBoard['7'] == theBoard['4'] == theBoard['1'] == player1) or \
+                    (theBoard['8'] == theBoard['5'] == theBoard['2'] == player1) or \
+                    (theBoard['9'] == theBoard['6'] == theBoard['3'] == player1) or \
+                    (theBoard['7'] == theBoard['5'] == theBoard['3'] == player1) or \
+                    (theBoard['9'] == theBoard['5'] == theBoard['1'] == player1):
+                print("Player1 wins!")
+                theBoard = {key: ' ' for key in theBoard}  # Reset the board
+                break
+
+
+
+            valid_move = False
+            while not valid_move:
                 move = (input("Player2 your turn with O. Please choose a cell: "))
                 if not move.isdigit():
                     print("Please insert a cell number.")
+
                 else:
-                    make_move(player1, move)
-                    printBoard(theBoard)
+                    valid_move = make_move(player2, move)
+                    if valid_move:
+                        printBoard(theBoard)
+                        break
 
+            if (theBoard['7'] == theBoard['8'] == theBoard['9'] == player2) or \
+                    (theBoard['4'] == theBoard['5'] == theBoard['6'] == player2) or \
+                    (theBoard['1'] == theBoard['2'] == theBoard['3'] == player2) or \
+                    (theBoard['7'] == theBoard['4'] == theBoard['1'] == player2) or \
+                    (theBoard['8'] == theBoard['5'] == theBoard['2'] == player2) or \
+                    (theBoard['9'] == theBoard['6'] == theBoard['3'] == player2) or \
+                    (theBoard['7'] == theBoard['5'] == theBoard['3'] == player2) or \
+                    (theBoard['9'] == theBoard['5'] == theBoard['1'] == player2):
+                print("Player2 wins!")
+                theBoard = {key: ' ' for key in theBoard}  # Reset the board
+                break
 
-
-
-
-
-
-
-
-
+            if i == 9:
+                print("It's a draw!")
+                theBoard = {key: ' ' for key in theBoard}  # Reset the board
+                break
 
 
     elif start_question.lower() == "no":
         print("The game is over.")
         game = False
-
 
 
 
