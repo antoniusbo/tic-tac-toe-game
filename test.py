@@ -13,6 +13,9 @@ def printBoard(board):
     print('-+-+-')
     print(board['1'] + '|' + board['2'] + '|' + board['3'])
 
+player1 = "X"
+player2 = "O"
+
 game = 1
 
 while game == True:
@@ -27,7 +30,58 @@ while game == True:
         #     print("Please write a name not a number.")
         print("The board is below. Let's start!")
         printBoard(theBoard)
-        print("Player1 you turn with X.")
+        move = int(input("Player1 your turn with X. Please choose a cell: "))
+        if move != int:
+            print("Please insert a cell number.")
+        else:
+            if theBoard['1'] == ' ':
+                theBoard['1'] = player1
+            else:
+                print("The cell is already occupied. Please choose another cell.")
+            if theBoard['2'] == ' ':
+                theBoard['2'] = player1
+            else:
+                print("The cell is already occupied. Please choose another cell.")
+            if theBoard['3'] == ' ':
+                theBoard['3'] = player1
+            else:
+                print("The cell is already occupied. Please choose another cell.")
+            if theBoard['4'] == ' ':
+                theBoard['4'] = player1
+            else:
+                print("The cell is already occupied. Please choose another cell.")
+            if theBoard['5'] == ' ':
+                theBoard['5'] = player1
+            else:
+                print("The cell is already occupied. Please choose another cell.")
+            if theBoard['6'] == ' ':
+                theBoard['6'] = player1
+            else:
+                print("The cell is already occupied. Please choose another cell.")
+            if theBoard['7'] == ' ':
+                theBoard['7'] = player1
+            else:
+                print("The cell is already occupied. Please choose another cell.")
+            if theBoard['8'] == ' ':
+                theBoard['8'] = player1
+            else:
+                print("The cell is already occupied. Please choose another cell.")
+            if theBoard['9'] == ' ':
+                theBoard['9'] = player1
+            else:
+                print("The cell is already occupied. Please choose another cell.")
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

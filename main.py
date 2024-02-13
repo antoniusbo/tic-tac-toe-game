@@ -2,8 +2,8 @@ theBoard = {'7': ' ', '8': ' ', '9': ' ',
             '4': ' ', '5': ' ', '6': ' ',
             '1': ' ', '2': ' ', '3': ' '}
 
-for key in theBoard:
-    board_keys.append(key)
+# for key in theBoard:
+#     board_keys.append(key)
 
 def printBoard(board):
     print(board['7'] + '|' + board['8'] + '|' + board['9'])
@@ -25,6 +25,9 @@ while game == True:
         # name2 = str(input("Please write your name. You will be a Player2: "))
         # if name1 and name2 != str:
         #     print("Please write a name not a number.")
+        print("The board is below. Let's start!")
+        printBoard(theBoard)
+        print("Player1 you turn with X.")
 
 
 
