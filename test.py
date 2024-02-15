@@ -39,7 +39,11 @@ while game == True:
         #     print("Please write a name not a number.")
         print("The board is below. Let's start!")
         printBoard(theBoard)
+
+        i = 0
+
         for i in range(1, 10):
+
             valid_move = False
             while not valid_move:
                 move = (input("Player1 your turn with X. Please choose a cell: "))
@@ -51,8 +55,6 @@ while game == True:
                     if valid_move:
                         printBoard(theBoard)
                         break
-
-
 
             if (theBoard['7'] == theBoard['8'] == theBoard['9'] == player1) or \
                     (theBoard['4'] == theBoard['5'] == theBoard['6'] == player1) or \
@@ -66,7 +68,10 @@ while game == True:
                 theBoard = {key: ' ' for key in theBoard}  # Reset the board
                 break
 
-
+            if i == 9:
+                print("It's a draw!")
+                theBoard = {key: ' ' for key in theBoard}
+                break  # Reset the board
 
             valid_move = False
             while not valid_move:
@@ -92,17 +97,10 @@ while game == True:
                 theBoard = {key: ' ' for key in theBoard}  # Reset the board
                 break
 
-            if i == 9:
-                print("It's a draw!")
-                theBoard = {key: ' ' for key in theBoard}  # Reset the board
-                break
-
 
     elif start_question.lower() == "no":
         print("The game is over.")
         game = False
-
-
 
     else:
         print("Please respond 'Yes' or 'No'.")
