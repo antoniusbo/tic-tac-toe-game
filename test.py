@@ -40,8 +40,6 @@ while game == True:
         print("The board is below. Let's start!")
         printBoard(theBoard)
 
-        i = 0
-
         for i in range(1, 10):
 
             valid_move = False
@@ -68,7 +66,7 @@ while game == True:
                 theBoard = {key: ' ' for key in theBoard}  # Reset the board
                 break
 
-            if i == 9:
+            if i == 5:
                 print("It's a draw!")
                 theBoard = {key: ' ' for key in theBoard}
                 break  # Reset the board
